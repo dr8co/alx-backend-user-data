@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "alx-backend-user-data"
+version = "0.1.0"
+description = ""
+authors = ["Ian Duncan <76043277+dr8co@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "alx_backend_user_data"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+bcrypt = "^4.0.1"
+mysql = "^0.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
