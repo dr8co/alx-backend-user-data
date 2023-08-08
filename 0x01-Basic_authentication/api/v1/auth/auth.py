@@ -11,6 +11,7 @@ class Auth:
     """
     Manage the API authentication.
     """
+
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """
         Public method to require authentication for all routes
@@ -20,8 +21,12 @@ class Auth:
             return True
         if path[-1] != '/':
             path += '/'
-        if path in excluded_paths:
-            return False
+        for p in excluded_paths:
+            if p.endswith('*'):
+                if path.startswith(p[:-1]):
+                    return False
+            elif path == p:
+                return False
         return True
 
     def authorization_header(self, request=None) -> str:
